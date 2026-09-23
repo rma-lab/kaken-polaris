@@ -28,6 +28,18 @@ sh reference/fetch_jsps.sh
 - [KAKEN-ATLAS](https://github.com/rma-lab/kaken-atlas): 科研費採択課題20万件の学術地図。審査区分表の構造化データを共有し、申請書の近傍検索・地図上へのプロットを検討中。
 - Polaris は北極星。KAKEN-ATLAS の地図に対する「進む方向を示す星」として名付けた（旧仮称 whet）。
 
+## ライセンス
+
+「原則は非商用で自由、商用は個別に許諾」の二段構えです。
+
+| 対象 | ライセンス |
+|---|---|
+| コード | [PolyForm Noncommercial 1.0.0](LICENSE)。教育機関・研究機関・公的機関の利用は非商用として明示的に許容 |
+| ルーブリック・知見カード・設計文書 | [CC BY-NC-SA 4.0](LICENSE-CONTENT.md)。国公私立を問わず大学・研究機関の学内利用は非商用 |
+| 審査区分表の構造化データ | CC BY 4.0（出典: JSPS 審査区分表、NII KAKEN マスタ） |
+
+営利利用（有償の添削サービス、製品への組み込み、有償の導入請負など）は rma-lab に連絡してください。個別に許諾し、[COMMERCIAL-LICENSES.md](COMMERCIAL-LICENSES.md) で公開します。寄稿の条件は [CONTRIBUTING.md](CONTRIBUTING.md) にあります。
+
 ## 注意
 
 - `reference/seminar/` の資料は出所ごとに扱いが異なる（公開 / 要確認 / 許諾待ち）。index.md を参照。原本は配布しない。
