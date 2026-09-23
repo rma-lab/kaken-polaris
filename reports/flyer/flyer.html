@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>KAKEN Polaris — 科研費申請書ブラッシュアップ支援（構想資料）</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --ink:#0b0b0b; --sub:#52514e; --muted:#898781; --line:#e1e0d9; --bg:#fcfcfb; --accent:#1c5cab; --tint:#eef3fa; --warn:#8a4b00; --warnbg:#fbf3e6; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif; font-size:8.7pt; line-height:1.55;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { width:210mm; height:297mm; padding:10mm 12mm 7mm; display:flex; flex-direction:column; gap:3.1mm; overflow:hidden; page-break-after:always; }
+  .page.back { page-break-after:auto; font-size:7.9pt; line-height:1.5; gap:2.4mm; }
+
+  header { display:flex; align-items:flex-end; gap:5mm; border-bottom:0.3mm solid var(--line); padding-bottom:2.5mm; }
+  header .t { flex:1 1 0; min-width:0; }
+  header h1 { margin:0; font-size:20pt; font-weight:700; letter-spacing:.01em; line-height:1.2; }
+  header h1 span { font-size:11pt; font-weight:500; color:var(--sub); margin-left:3mm; letter-spacing:.04em; }
+  header .lead { margin:1.2mm 0 0; font-size:10.2pt; color:var(--sub); }
+  header .tag { font-size:7.6pt; color:var(--sub); text-align:right; line-height:1.5; white-space:nowrap; }
+  header .tag b { display:block; color:var(--accent); font-weight:600; font-size:8.4pt; }
+  .back header h1 { font-size:15pt; }
+  .back header h1 span { font-size:9.5pt; }
+
+  h2 { margin:0 0 1.2mm; font-size:10.6pt; font-weight:700; display:flex; align-items:center; gap:2mm; }
+  h2::before { content:""; width:1.4mm; height:4.6mm; background:var(--accent); border-radius:.7mm; }
+  .back h2 { font-size:9.4pt; }
+  h3 { margin:0 0 .6mm; font-size:9pt; font-weight:700; }
+  p { margin:0; color:var(--sub); }
+  p + p { margin-top:.9mm; }
+  b { color:var(--ink); font-weight:600; }
+  .row { display:flex; gap:6mm; }
+  .row > div { flex:1 1 0; min-width:0; }
+  .row > .w { flex:0 0 88mm; }
+
+  .hero { background:var(--tint); border-radius:2.5mm; padding:3.2mm 4.5mm; display:flex; gap:6mm; align-items:flex-start; }
+  .hero .big { flex:1 1 0; font-size:9pt; color:var(--sub); }
+  .hero .big b.h { display:block; font-size:13pt; color:var(--ink); line-height:1.45; margin-bottom:1.6mm; }
+  .hero .side { flex:0 0 62mm; font-size:8.4pt; color:var(--sub); border-left:0.3mm solid #c9d8ee; padding-left:4.5mm; }
+  .hero .side div { margin-bottom:1.2mm; }
+  .hero .side b { color:var(--accent); }
+
+  .flow { display:flex; align-items:stretch; gap:1mm; margin:1mm 0 2mm; }
+  .flow div { flex:1; border:0.25mm solid #c9d8ee; background:var(--tint); border-radius:1.8mm; padding:1.4mm 1mm; text-align:center; font-size:7.3pt; line-height:1.35; color:var(--sub); }
+  .flow div b { display:block; color:var(--ink); font-size:8.4pt; }
+  .flow i { flex:0 0 auto; align-self:center; color:var(--muted); font-style:normal; font-size:8pt; }
+
+  ol.k { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1.2mm; }
+  ol.k li { display:flex; gap:2.4mm; color:var(--sub); }
+  ol.k li .k { flex:0 0 16mm; height:6mm; border-radius:3mm; background:var(--tint); color:var(--accent); font-weight:700; font-size:8.4pt; display:flex; align-items:center; justify-content:center; margin-top:.4mm; }
+  ul.d { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:1mm; }
+  ul.d li { color:var(--sub); padding-left:3.4mm; position:relative; }
+  ul.d li::before { content:""; position:absolute; left:0; top:2.3mm; width:1.5mm; height:1.5mm; border-radius:50%; background:var(--accent); }
+
+  table { border-collapse:collapse; width:100%; font-size:8.2pt; }
+  th, td { text-align:left; vertical-align:top; padding:.7mm 1.4mm; border-bottom:0.2mm solid var(--line); color:var(--sub); }
+  th { color:var(--ink); font-weight:600; background:#f4f3ee; white-space:nowrap; }
+  td:first-child { white-space:nowrap; color:var(--ink); }
+  .back table { font-size:7.4pt; }
+
+  .card { background:#f6f5f0; border:0.25mm solid var(--line); border-radius:1.8mm; padding:2mm 2.8mm; font-family:"SF Mono",Menlo,monospace; font-size:6.7pt; line-height:1.45; color:var(--ink); white-space:pre-wrap; overflow-wrap:anywhere; }
+  .note { background:var(--warnbg); border-left:1mm solid var(--warn); padding:1.6mm 3mm; border-radius:1mm; font-size:8pt; color:var(--sub); }
+  .note b { color:var(--warn); }
+  .ask { background:var(--tint); border-radius:2.5mm; padding:2.6mm 4.5mm; display:flex; gap:6mm; }
+  .ask > div { flex:1 1 0; }
+  .ask .who { margin-top:1.4mm; color:var(--ink); font-size:9pt; }
+  footer { margin-top:auto; font-size:6.8pt; color:var(--muted); line-height:1.5; border-top:0.25mm solid var(--line); padding-top:1.6mm; }
+</style>
+</head>
+<body>
+
+<!-- ===================== 表 ===================== -->
+<div class="page">
+  <header>
+    <div class="t">
+      <h1>KAKEN Polaris<span>科研費申請書のブラッシュアップ支援</span></h1>
+      <p class="lead">審査基準そのものを物差しにして、申請書の弱点を指摘する。ローカルで動き、URAの知見で育つ。</p>
+    </div>
+    <div class="tag"><b>対象種目</b>基盤研究(C)・基盤研究(B)・若手研究<br>2026年9月 構想資料</div>
+  </header>
+
+  <div class="hero">
+    <div class="big">
+      <b class="h">申請書のWordファイルを入れると、数分後に<br>「指摘・問いかけ・直す方向」のレポートが返る。</b>
+      研究者が書いた研究計画調書（生成AIの助けを借りたものを含む）を、審査委員が使う評定基準と様式の欄構成に沿って点検します。URAとの面談の文字起こしを加えると「面談では語ったのに申請書に書かれていないこと」を拾い出します。前年度の不採択申請書と審査結果開示を起点にした再挑戦モードも想定しています。
+    </div>
+    <div class="side">
+      <div><b>修正文は書きません。</b>指摘と方向と問いかけだけを返します。文章は研究者本人が書きます。</div>
+      <div><b>申請書は学外に出ません。</b>学内に置いた1台のMacでLLMを動かします。</div>
+      <div><b>URAの知見で育ちます。</b>各機関のURAが観点を持ち寄り、議論して更新します。</div>
+    </div>
+  </div>
+
+  <div>
+    <h2>しくみ</h2>
+    <div class="flow">
+      <div><b>申請書 .docx</b>＋面談文字起こし（任意）</div><i>▶</i>
+      <div><b>欄ごとに分割</b>様式の見出しで切る</div><i>▶</i>
+      <div><b>ルーブリック照合</b>ローカルLLMが観点ごとに判定</div><i>▶</i>
+      <div><b>レポート</b>引用・指摘・方向・問いかけ</div><i>▶</i>
+      <div><b>改稿して再投入</b>前回指摘の解消状況を表示</div>
+    </div>
+    <p>ルーブリックは、JSPSが公開している審査規程の評定基準（学術的重要性、研究方法の妥当性、研究遂行能力・研究環境、国際性）と、研究計画調書の様式の小項目から起こした<b>21の観点</b>です。各観点に「どの状態なら水準4か、水準2か」を観察できる言葉で書いてあり、LLMには必ず本文からの引用を根拠として示させます。審査委員が減点理由として選ぶ項目と観点が一対一なので、審査結果開示の「＊」項目とも直接つながります。</p>
+  </div>
+
+  <div class="row">
+    <div>
+      <h2>研究者が受け取るもの</h2>
+      <ol class="k">
+        <li><span class="k">指摘</span><span>本文のこの箇所（引用）に、この観点でこういう弱さがある。採否に効く観点を先に、配分額に効く観点（国際性）は別枠で。</span></li>
+        <li><span class="k">問いかけ</span><span>「この計画で一番不安なのはどこか。そこが失敗したらどうするか」のような、本人にしか答えられない質問。</span></li>
+        <li><span class="k">方向</span><span>「問いを冒頭に一文で置き、背景はその後に回す」「面談で語った予備実験をここに入れる」。書き換え文は出しません。</span></li>
+        <li><span class="k">面談との差</span><span>面談で語られたが申請書にないこと。URAが面談でやっている仕事そのものを、抜けなく反映します。</span></li>
+      </ol>
+    </div>
+    <div class="w">
+      <h2>URAの現場で</h2>
+      <ul class="d">
+        <li><b>面談前の下読みに。</b>URAが読む前に弱点の一覧があれば、面談を「どう直すか」の議論から始められます。</li>
+        <li><b>URAが足りない機関で。</b>研究者が自分で回せる一次チェックとして。URAは二次チェックに集中できます。</li>
+        <li><b>再挑戦の伴走に。</b>開示情報で「＊」が付いた観点を最優先に、前年度版からの差分が効いているかを判定します。</li>
+        <li><b>学内限定のWebサービスとして。</b>研究者ごとのアカウント、応募1件ごとのプロジェクト、版の履歴。担当URAは面談テキストを直接添付できます。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note"><b>評点や採否は予測しません。</b>総合評点は小区分内の相対評価で分布が強制されるため、一件の調書からは原理的に出せません。評定要素の点数も、審査委員の実採点との対応が確認できるまで研究者向けには数値を出さず、「審査委員が2以下を付ける可能性がある項目」のフラグと、200字程度の模擬審査意見（長所・短所）で示します。</div>
+
+  <div class="ask">
+    <div>
+      <h2>一緒に育ててくださるURAを探しています</h2>
+      <p>科研費セミナーの資料、添削で繰り返し指摘していること、審査委員経験からの気づき。それらをmdファイル一枚から持ち寄ってもらい、AIで統合し、矛盾する部分はオンライン会議で議論して方向を決めます。申請書の本文は共有しません。共有するのは観点と改善例だけです。</p>
+    </div>
+    <div style="flex:0 0 70mm">
+      <h2>利用の条件</h2>
+      <p>各機関で <b>Mac Studio（M5 Ultra、96GBメモリ）</b>1台を学内ネットワークに置けること。全機関が同じ機材・同じモデルで動かすので、ある機関で磨いた観点がそのまま他機関でも再現します。</p>
+      <div class="who">荻 多加之（福島大学／JAIST）　<span style="color:var(--accent)">takayuki1997@gmail.com</span></div>
+    </div>
+  </div>
+
+  <footer>
+    一次資料: 令和9(2027)年度 公募要領・研究計画調書様式(s-13/s-14/s-21)・作成記入要領、科学研究費助成事業における審査及び評価に関する規程（令和8年6月22日改正）別添5・6、審査の手引（令和8年度 基盤研究(B・C)・若手研究）、審査区分表（令和4年3月改正）。いずれもJSPS公開資料。
+    Polaris は北極星。KAKEN-ATLAS（学術地図）の上で進む方向を示す星として名付けました。構想段階です。（2026年9月）
+  </footer>
+</div>
+
+<!-- ===================== 裏 ===================== -->
+<div class="page back">
+  <header>
+    <div class="t"><h1>設計ノート<span>KAKEN Polaris はどう作るか、知見はどう集めるか</span></h1></div>
+    <div class="tag"><b>構想段階</b>2026年9月時点の設計。実装はこれから</div>
+  </header>
+
+  <div class="row">
+    <div>
+      <h2>実行環境</h2>
+      <ul class="d">
+        <li><b>本番機は Mac Studio M5 Ultra 96GB</b>を各機関に1台。70B級4bit、または100B級MoEの4bitが実用ライン。推論はMLX、OpenAI互換のローカルエンドポイント。</li>
+        <li><b>バッチ型のUX。</b>基盤Cの調書は約2万トークン、60分の面談文字起こしも約2万トークン。Apple Siliconはプロンプト処理が遅いので、欄ごとに分割して処理し、「アップロードして数分後にレポート」の形にします。学内のジョブキューで数人分を順に捌きます。</li>
+        <li><b>配布はアプライアンスとして。</b>インストールスクリプト、ハッシュで固定したモデル重み、署名付きの観点DBとプロンプト。機関向け要件書（機材、ネットワーク分離、申請書の保存期限と削除）。</li>
+        <li><b>開発は MacBook Air（24GB）</b>で小さいモデルを使い、エンドポイント差し替えで本番へ。</li>
+      </ul>
+      <h2 style="margin-top:2.6mm">KAKEN-ATLAS との連携（検討中）</h2>
+      <p>採択課題20万件の研究概要を同じ埋め込みモデル（Ruri v3）で数値化した地図があります。申請書の概要を同じモデルでローカルに埋め込み、近傍の採択課題を引くと、<b>近い課題がどの小区分で採択されているか</b>の分布と、近傍の課題名が得られます。選んだ小区分の妥当性の目安（審査の手引どおり、区分選択だけでは減点されないので参考情報）と、位置づけ・独自性を書くときの「隣にある既採択研究」の提示に使えます。学習は不要で、根拠を近傍課題として示せます。</p>
+    </div>
+    <div>
+      <h2>ルーブリック v0（21観点）</h2>
+      <table>
+        <tr><th>評定要素</th><th>観点数</th><th>主な観点</th></tr>
+        <tr><td>A1 学術的重要性</td><td>7</td><td>概要、問いの明示、着想の経緯、独自性の示し方、重要性の説得、動向と位置づけ、波及効果</td></tr>
+        <tr><td>A2 方法の妥当性</td><td>7</td><td>研究項目への分解、方法の根拠、到達目標と年次計画、リスクと代替案、準備状況、経費の整合、分担者の役割</td></tr>
+        <tr><td>A3 遂行能力・環境</td><td>3</td><td>研究活動と計画の対応、業績記載の形式、研究環境の根拠</td></tr>
+        <tr><td>B 国際性</td><td>1</td><td>基盤B・Cのみ。採否ではなく配分額・国際若手支援強化枠に効く</td></tr>
+        <tr><td>横断・形式</td><td>3</td><td>小区分の審査委員に伝わる書き方、分量と体裁、人権・法令遵守の記述漏れ</td></tr>
+      </table>
+      <p style="margin-top:1.4mm">水準記述の例（問いの明示）。<b>4</b>: 疑問文の一文として明示され、答え方が読み取れる。<b>3</b>: 目的文の形で焦点がやや広い。<b>2</b>: 「〜を開発する」型で問いの形になっていない。<b>1</b>: 該当記述なし。</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <h2>URAの知見をどう形式化するか</h2>
+      <p>知見は<b>一件一ファイルのカード</b>にします。主張、適用範囲（種目・分野・欄・年度）、状態（提案／議論中／合意／却下／条件付き）、出典、根拠と改善例。カードはルーブリックの観点にぶら下がり、水準記述や改善の方向を分野別に具体化します。</p>
+      <div class="card" style="margin:1.6mm 0">id: K-0042
+claim: 「研究目的」冒頭で問いを一文で示し、背景はその後に置く
+scope: {種目: [基盤C, 若手], 分野: 理工系, 欄: 研究目的(1)}
+status: 合意   decided: 2026-10-15
+sources: [ura-A/notes.md, seminar-2025.md, meeting-2026-10-15.md]
+rubric: R02</div>
+      <ul class="d">
+        <li><b>矛盾の大半は条件の違い。</b>適用範囲を付けてから突き合わせ、同じ条件で逆のことを言うものだけを会議の論点にします。却下した主張も状態付きで残します。</li>
+        <li><b>会議の文字起こしは自動でマージしない。</b>AIが決定記録の下書きを作り、参加者が確認してからカードの状態を更新します。</li>
+        <li><b>元資料と統合結果を分ける。</b>各カードは出典に戻れます。様式が変われば根拠の陳腐化を判定できます。カードはgitで管理し、URAにはgitを隠したフォームを用意します。</li>
+      </ul>
+    </div>
+    <div>
+      <h2>審査結果開示を活かす</h2>
+      <p>不採択者に開示されるのは、不採択課題中のおおよその順位（A/B/C）、評定要素ごとの自分の平均点と採択課題の平均点、審査委員が2以下を付けた項目の「＊」、国際性の点数、経費と人権保護への指摘の有無です。＊項目は審査規程の問いと一対一なので、<b>ルーブリックの観点に直接対応</b>します。再挑戦モードでは＊項目を最優先に置き、採択平均との差が大きい評定要素を重点として示します。</p>
+      <h2 style="margin-top:2.8mm">構造データ＋審査結果を、同意のうえで集める</h2>
+      <p>本文は保存しません。申請書の<b>構造の特徴</b>（小項目の有無と分量、問いの位置、予備データの有無、年次計画の有無、業績数、国際性の型など）と、レビューエンジンの判定と、翌年判明する審査結果をペアで匿名保存します。保存するJSONそのものを画面に出して同意を取り、項目ごとに外せ、後から取り下げられます。</p>
+      <ul class="d" style="margin-top:1.2mm">
+        <li><b>LLMの判定と審査委員の実採点の突合。</b>水準記述のどこがずれているかが分かる、初めての正解データになります。</li>
+        <li><b>知見カードの裏付け。</b>「問いを冒頭に」が実際に点数と関係するかを件数で確かめます。相関であって因果ではないと明記し、自動ルール化はしません。</li>
+        <li><b>再識別への配慮。</b>小区分は中区分または大区分に丸め、年度は幅で持ち、件数が閾値未満の組み合わせは出しません。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <h2>現在地と進め方</h2>
+      <table>
+        <tr><th>時期</th><th>内容</th></tr>
+        <tr><td>2026年9月</td><td>設計、一次資料の整備（公募要領、様式、審査規程、審査の手引、審査区分表）、ルーブリックv0。<b>ここまで完了</b></td></tr>
+        <tr><td>フェーズ1</td><td>作成者の知見をカードに分解。Wordを欄ごとに読む処理とルーブリック駆動の最小レビューを試作し、手元の申請書案で水準記述の粗さを確かめる</td></tr>
+        <tr><td>フェーズ2</td><td>面談文字起こしとのギャップ抽出。再挑戦モード。学内限定Webサービス化</td></tr>
+        <tr><td>フェーズ3</td><td>複数機関のURAが観点DBを編集する体制。コメントへの採否記録と開示情報による較正。参加機関間の合意文書</td></tr>
+      </table>
+    </div>
+    <div style="flex:0 0 66mm">
+      <h2>線引き</h2>
+      <ul class="d">
+        <li>本人の文章を良くする道具であって、文章を作る道具ではない。同じモデルが修正文を出せば、同じ言い回しの申請書が同じ審査区分に並びます。</li>
+        <li>審査委員は調書を生成AIに入力することを禁じられています。応募側の利用は本人の責任ですが、「AIが書いた」印象は研究者の損です。</li>
+        <li>非公開資料（書面審査マニュアル等）は配布物に含めません。</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    関連プロジェクト: KAKEN-ATLAS（科研費採択課題20万件の学術地図、rma-lab.github.io/kaken-atlas）。審査区分表の構造化データを共有しています。
+    連絡先: 荻 多加之（福島大学／JAIST） takayuki1997@gmail.com　（2026年9月）
+  </footer>
+</div>
+</body>
+</html>

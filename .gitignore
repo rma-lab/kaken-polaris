@@ -1,0 +1,20 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# 参考資料の原本と抽出テキストは git に入れない（大きい／権利が出所ごとに異なる）。
+# 出所 URL は各 reference/*/index.md にあり、JSPS 公開資料は reference/fetch_jsps.sh で再取得できる。
+reference/**/*.pdf
+reference/**/*.txt
+reference/**/*.xlsx
+reference/seminar/**
+!reference/seminar/index.md
+# JSPS の様式（公開・小さい）と、そこから作った構造化データは追跡する
+!reference/yoshiki/2027/*.docx
+
+# 生成物のプレビュー画像
+reports/flyer/preview*.png

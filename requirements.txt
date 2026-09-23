@@ -1,0 +1,8 @@
+# .venv 用（uv pip install --python .venv/bin/python -r requirements.txt）
+pypdf
+pdfplumber
+pypdfium2
+pillow
+python-docx
+openpyxl
+pyyaml
