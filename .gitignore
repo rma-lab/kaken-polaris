@@ -16,5 +16,9 @@ reference/seminar/**
 # JSPS の様式（公開・小さい）と、そこから作った構造化データは追跡する
 !reference/yoshiki/2027/*.docx
 
+# セミナー資料の分析（主張抽出・統合）は、出所の許諾・確認が済むまで公開リポジトリに入れない。
+# 手元では analysis/ に置いたまま作業する。
+analysis/
+
 # 生成物のプレビュー画像
 reports/flyer/preview*.png

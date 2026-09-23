@@ -4,7 +4,7 @@
 
 - `rubric/`（ルーブリックと水準記述）
 - `cards/`（知見カード。今後追加）
-- `docs/`、`analysis/`、`reports/`（設計文書、分析、紹介資料）
+- `docs/`、`reports/`（設計文書、紹介資料）、および今後公開する `analysis/`（セミナー資料の分析）
 - `reference/**/index.md`、`reference/yoshiki/2027/form_structure.md`
 
 ライセンス全文: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.ja

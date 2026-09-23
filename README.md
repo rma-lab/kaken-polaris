@@ -13,7 +13,7 @@
 | reference/ | 一次資料の置き場と index（公募要領、様式、審査規程、審査の手引、審査区分表、セミナー資料）。原本は git に含めず、JSPS 公開資料は `reference/fetch_jsps.sh` で再取得 |
 | reference/yoshiki/2027/form_structure.md | 様式の欄構成と評定要素の対応、国際性の扱い、審査の手引から分かる審査の実態 |
 | reference/shinsa/2027/shinsa_kubun.json | 審査区分表の構造化データ（NII公式マスタ + 令和4年改正の内容の例。kaken-atlas と共有） |
-| analysis/ | セミナー資料から抽出した主張（568件）と統合分析。ルーブリックには未反映 |
+| analysis/（非公開） | セミナー資料から抽出した主張（568件）と統合分析。出所の許諾・確認が済んだ資料から公開し、ルーブリックに反映する予定。現在は手元のみ |
 | reports/flyer/ | A4両面の紹介資料（HTML → Chrome で PDF 化） |
 
 ## 環境
@@ -41,6 +41,8 @@ sh reference/fetch_jsps.sh
 営利利用（有償の添削サービス、製品への組み込み、有償の導入請負など）は rma-lab に連絡してください。個別に許諾し、[COMMERCIAL-LICENSES.md](COMMERCIAL-LICENSES.md) で公開します。寄稿の条件は [CONTRIBUTING.md](CONTRIBUTING.md) にあります。
 
 ## 注意
+
+- このプロジェクトは個人による取り組みで、作成者の所属機関の公式プロジェクトではありません。内容は作成者個人の見解であり、所属機関の見解を示すものではありません。
 
 - `reference/seminar/` の資料は出所ごとに扱いが異なる（公開 / 要確認 / 許諾待ち）。index.md を参照。原本は配布しない。
 - 申請書本文や審査結果開示など個人の資料はこのリポジトリに置かない。
