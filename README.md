@@ -26,6 +26,7 @@ sh reference/fetch_jsps.sh
 ## 関連
 
 - [KAKEN-ATLAS](https://github.com/rma-lab/kaken-atlas): 科研費採択課題20万件の学術地図。審査区分表の構造化データを共有し、申請書の近傍検索・地図上へのプロットを検討中。
+- 実行環境の実機手順、学内のサーバ設置手続き、機密データなど公開できないものは、プライベートリポジトリ `kaken-polaris-private`（旧 campus-llm）で管理している。
 - Polaris は北極星。KAKEN-ATLAS の地図に対する「進む方向を示す星」として名付けた（旧仮称 whet）。
 
 ## ライセンス
